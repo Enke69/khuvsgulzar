@@ -77,21 +77,23 @@ const TRUST_ITEMS = [
 ]
 
 async function getHomeData() {
-  const supabase = await createClient()
-
-  const [categoriesRes, latestRes] = await Promise.all([
-    supabase.from('categories').select('*').order('name'),
-    supabase
-      .from('ads')
-      .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)')
-      .eq('status', 'approved')
-      .order('created_at', { ascending: false })
-      .limit(4),
-  ])
-
-  return {
-    categories: (categoriesRes.data || []) as Category[],
-    latestAds: (latestRes.data || []) as Ad[],
+  try {
+    const supabase = await createClient()
+    const [categoriesRes, latestRes] = await Promise.all([
+      supabase.from('categories').select('*').order('name'),
+      supabase
+        .from('ads')
+        .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)')
+        .eq('status', 'approved')
+        .order('created_at', { ascending: false })
+        .limit(4),
+    ])
+    return {
+      categories: (categoriesRes.data || []) as Category[],
+      latestAds: (latestRes.data || []) as Ad[],
+    }
+  } catch {
+    return { categories: [] as Category[], latestAds: [] as Ad[] }
   }
 }
 
