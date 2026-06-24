@@ -34,10 +34,11 @@ export default function LoginPage() {
       <div className="w-full max-w-md">
         <div className="bg-white rounded-2xl shadow-sm border border-gray-100 p-8">
           <div className="text-center mb-8">
-            <Link href="/" className="inline-flex items-center mb-6">
+            <Link href="/" className="inline-flex items-start mb-6">
               <span className="text-2xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
-                <span style={{ color: '#0354c7' }}>Khuvsgul</span><span style={{ color: '#ecc34a' }}>Zar</span><span style={{ color: '#0354c7' }}>.mn</span>
+                <span style={{ color: '#1a3a6b' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>zar.mn</span>
               </span>
+              <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="#e8841a" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="mt-0.5 ml-0.5 flex-shrink-0"><path d="m3 11 19-9-9 19-2-8-8-2z"/></svg>
             </Link>
             <h1 className="text-2xl font-bold text-gray-900">Нэвтрэх</h1>
             <p className="text-gray-500 text-sm mt-1">Бүртгэлтэй хаагаараа нэвтэрнэ үү</p>

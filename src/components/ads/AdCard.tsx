@@ -4,7 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 import { Heart, MapPin, Eye } from 'lucide-react'
-import { formatPrice, formatRelativeDate } from '@/lib/utils'
+import { formatPrice, formatShortDate } from '@/lib/utils'
 import type { Ad } from '@/lib/types'
 import { createClient } from '@/lib/supabase/client'
 
@@ -59,7 +59,7 @@ export default function AdCard({ ad, showFavorite = true }: Props) {
         {ad.category && (
           <span
             className="absolute top-2 left-2 text-white text-[10px] font-bold px-2 py-0.5 rounded uppercase tracking-wide"
-            style={{ background: '#0354c7' }}
+            style={{ background: '#1a3a6b' }}
           >
             {ad.category.name}
           </span>
@@ -82,24 +82,22 @@ export default function AdCard({ ad, showFavorite = true }: Props) {
           {ad.title}
         </h3>
 
-        <div className="font-bold text-base mb-2" style={{ color: '#0354c7' }}>
+        <div className="flex items-center gap-1 text-xs text-gray-500 mb-1.5">
+          <MapPin size={11} className="flex-shrink-0 text-gray-400" />
+          <span className="truncate">{ad.location?.name || '—'}</span>
+        </div>
+
+        <div className="font-bold text-base mb-2" style={{ color: '#1a3a6b' }}>
           {formatPrice(ad.price)}
         </div>
 
-        <div className="flex items-center justify-between text-xs text-gray-400">
+        <div className="flex items-center justify-between text-xs text-gray-400 pt-2 border-t border-gray-100">
+          <span>{formatShortDate(ad.created_at)}</span>
           <span className="flex items-center gap-1">
-            <MapPin size={11} className="flex-shrink-0" />
-            <span className="truncate">{ad.location?.name || '—'}</span>
+            <Eye size={11} />
+            {ad.views}
           </span>
-          <span>{formatRelativeDate(ad.created_at)}</span>
         </div>
-
-        {ad.views > 0 && (
-          <div className="flex items-center gap-1 text-xs text-gray-300 mt-1">
-            <Eye size={10} />
-            <span>{ad.views}</span>
-          </div>
-        )}
       </div>
     </Link>
   )

@@ -8,7 +8,7 @@ export default function Footer() {
           <div className="md:col-span-1">
             <div className="mb-4">
               <span className="text-xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
-                <span style={{ color: '#7ab3f5' }}>Khuvsgul</span><span style={{ color: '#ecc34a' }}>Zar</span><span style={{ color: '#7ab3f5' }}>.mn</span>
+                <span style={{ color: '#7a9fd4' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>Zar</span><span style={{ color: '#7a9fd4' }}>.mn</span>
               </span>
               <p className="text-xs text-gray-500 mt-0.5">Хөвсгөлийн зарын нэгдсэн платформ</p>
             </div>

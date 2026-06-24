@@ -31,19 +31,13 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/hero-bg.jpg'), linear-gradient(160deg, #0354c7 0%, #1a6fd4 40%, #4a9fe8 70%, #7ec8f0 100%)",
+          backgroundImage: "url('/homepage%20bg.png'), linear-gradient(160deg, #1a3a6b 0%, #2a5298 40%, #3a74c4 70%, #7a9fd4 100%)",
         }}
       />
       {/* Subtle dark overlay for text readability */}
       <div className="absolute inset-0 bg-black/10" />
 
-      <div className="relative z-10 max-w-3xl mx-auto px-4 pt-12 pb-0 text-center">
-        {/* Big headline hidden by the image in the screenshot — keep it for SEO / no-image fallback */}
-        <h1 className="text-3xl md:text-4xl font-extrabold text-white drop-shadow mb-8 leading-tight"
-          style={{ fontFamily: 'Rubik, sans-serif', textShadow: '0 2px 8px rgba(0,0,0,0.25)' }}>
-          Хөвсгөлийн зарын нэгдсэн платформ
-        </h1>
-
+      <div className="relative z-10 max-w-3xl mx-auto px-4 pt-16 pb-0 text-center">
         {/* Search bar */}
         <form onSubmit={handleSearch}
           className="flex items-center bg-white rounded-xl shadow-2xl overflow-hidden mb-0 mx-auto max-w-2xl">
@@ -73,7 +67,7 @@ export default function HeroSection() {
           <button
             type="submit"
             className="text-white font-bold px-7 py-3.5 text-sm transition-opacity cursor-pointer"
-            style={{ background: '#0354c7' }}
+            style={{ background: '#1a3a6b' }}
             onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '0.88' }}
             onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '1' }}
           >
@@ -90,7 +84,7 @@ export default function HeroSection() {
               <a
                 key={label}
                 href={href}
-                className="flex items-center gap-2 text-white text-sm font-semibold hover:text-[#ecc34a] transition-colors cursor-pointer"
+                className="flex items-center gap-2 text-white text-sm font-semibold hover:text-[#e8841a] transition-colors cursor-pointer"
                 style={{ textShadow: '0 1px 4px rgba(0,0,0,0.3)' }}
               >
                 <Icon size={16} />

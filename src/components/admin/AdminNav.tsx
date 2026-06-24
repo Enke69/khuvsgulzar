@@ -26,7 +26,7 @@ export default function AdminNav() {
         <div className="flex items-center gap-2">
           <div>
             <span className="font-extrabold text-sm" style={{ fontFamily: 'Rubik, sans-serif' }}>
-              <span style={{ color: '#7ab3f5' }}>Khuvsgul</span><span style={{ color: '#ecc34a' }}>Zar</span><span style={{ color: '#7ab3f5' }}>.mn</span>
+              <span style={{ color: '#7a9fd4' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>Zar</span><span style={{ color: '#7a9fd4' }}>.mn</span>
             </span>
             <p className="text-gray-400 text-xs">Админ самбар</p>
           </div>

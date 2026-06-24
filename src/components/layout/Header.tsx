@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { useRouter } from 'next/navigation'
-import { Menu, X, User, Heart, LogOut, LayoutDashboard, Shield, ChevronDown } from 'lucide-react'
+import { Menu, X, User, Heart, LogOut, LayoutDashboard, Shield, ChevronDown, Megaphone } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
 import type { Profile } from '@/lib/types'
 
@@ -57,11 +57,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 gap-6">
 
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex flex-col leading-none">
-            <span className="text-2xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
-              <span style={{ color: '#0354c7' }}>Khuvsgul</span><span style={{ color: '#ecc34a' }}>Zar</span><span style={{ color: '#0354c7' }}>.mn</span>
-            </span>
-            <span className="text-[10px] text-gray-400 font-normal tracking-wide">Хөвсгөлийн зарын нэгдсэн платформ</span>
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2 leading-none">
+            <div className="flex flex-col">
+              <div className="flex items-start">
+                <span className="text-2xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
+                  <span style={{ color: '#1a3a6b' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>zar.mn</span>
+                </span>
+                <Megaphone size={16} className="ml-0.5 mt-0.5 flex-shrink-0" style={{ color: '#e8841a' }} />
+              </div>
+              <span className="text-[10px] text-gray-400 font-normal tracking-wide">Хөвсгөлийн зарын нэгдсэн платформ</span>
+            </div>
           </Link>
 
           {/* Desktop nav */}
@@ -70,7 +75,7 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-gray-700 hover:text-[#0354c7] px-3 py-1.5 text-sm font-medium transition-colors rounded-lg hover:bg-blue-50 whitespace-nowrap"
+                className="text-gray-700 hover:text-[#1a3a6b] px-3 py-1.5 text-sm font-medium transition-colors rounded-lg hover:bg-blue-50 whitespace-nowrap"
               >
                 {link.label}
               </Link>
@@ -83,10 +88,10 @@ export default function Header() {
               <div className="relative">
                 <button
                   onClick={() => setDropdownOpen(!dropdownOpen)}
-                  className="flex items-center gap-2 text-gray-700 hover:text-[#0354c7] transition-colors cursor-pointer px-3 py-1.5 rounded-lg hover:bg-blue-50"
+                  className="flex items-center gap-2 text-gray-700 hover:text-[#1a3a6b] transition-colors cursor-pointer px-3 py-1.5 rounded-lg hover:bg-blue-50"
                 >
                   <div className="w-7 h-7 bg-blue-100 rounded-full flex items-center justify-center">
-                    <User size={14} style={{ color: '#0354c7' }} />
+                    <User size={14} style={{ color: '#1a3a6b' }} />
                   </div>
                   <span className="text-sm font-medium">{profile?.full_name || 'Профайл'}</span>
                   <ChevronDown size={13} />
@@ -107,7 +112,7 @@ export default function Header() {
                     </Link>
                     {profile?.role === 'admin' && (
                       <Link href="/admin" onClick={() => setDropdownOpen(false)}
-                        className="flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-blue-50 cursor-pointer" style={{ color: '#0354c7' }}>
+                        className="flex items-center gap-2 px-4 py-2.5 text-sm hover:bg-blue-50 cursor-pointer" style={{ color: '#1a3a6b' }}>
                         <Shield size={15} /> Админ самбар
                       </Link>
                     )}
@@ -124,7 +129,7 @@ export default function Header() {
                 <Link
                   href="/login"
                   className="flex items-center gap-1.5 text-sm font-semibold px-4 py-2 rounded-lg border-2 transition-colors cursor-pointer"
-                  style={{ color: '#0354c7', borderColor: '#0354c7' }}
+                  style={{ color: '#1a3a6b', borderColor: '#1a3a6b' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.background = '#f0f5ff' }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.background = 'transparent' }}
                 >
@@ -134,7 +139,7 @@ export default function Header() {
                 <Link
                   href="/register"
                   className="text-sm font-bold px-4 py-2 rounded-lg transition-opacity cursor-pointer"
-                  style={{ background: '#ecc34a', color: '#1a1a1a' }}
+                  style={{ background: '#e8841a', color: '#1a1a1a' }}
                   onMouseEnter={e => { (e.currentTarget as HTMLElement).style.opacity = '0.88' }}
                   onMouseLeave={e => { (e.currentTarget as HTMLElement).style.opacity = '1' }}
                 >
@@ -171,7 +176,7 @@ export default function Header() {
                   className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 rounded-lg text-sm cursor-pointer">Миний зарууд</Link>
                 {profile?.role === 'admin' && (
                   <Link href="/admin" onClick={() => setMobileOpen(false)}
-                    className="block px-4 py-2.5 hover:bg-blue-50 rounded-lg text-sm cursor-pointer" style={{ color: '#0354c7' }}>
+                    className="block px-4 py-2.5 hover:bg-blue-50 rounded-lg text-sm cursor-pointer" style={{ color: '#1a3a6b' }}>
                     Админ самбар
                   </Link>
                 )}
@@ -184,12 +189,12 @@ export default function Header() {
               <div className="flex gap-2 px-4 pt-2">
                 <Link href="/login" onClick={() => setMobileOpen(false)}
                   className="flex-1 text-center text-sm font-semibold px-4 py-2.5 rounded-lg border-2 cursor-pointer"
-                  style={{ color: '#0354c7', borderColor: '#0354c7' }}>
+                  style={{ color: '#1a3a6b', borderColor: '#1a3a6b' }}>
                   Нэвтрэх
                 </Link>
                 <Link href="/register" onClick={() => setMobileOpen(false)}
                   className="flex-1 text-center text-sm font-bold px-4 py-2.5 rounded-lg cursor-pointer"
-                  style={{ background: '#ecc34a', color: '#1a1a1a' }}>
+                  style={{ background: '#e8841a', color: '#1a1a1a' }}>
                   Бүртгүүлэх
                 </Link>
               </div>
