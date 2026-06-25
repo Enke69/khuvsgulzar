@@ -1,4 +1,6 @@
 import Link from 'next/link'
+import Image from 'next/image'
+import { Megaphone } from 'lucide-react'
 
 export default function Footer() {
   return (
@@ -6,11 +8,17 @@ export default function Footer() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="md:col-span-1">
-            <div className="mb-4">
-              <span className="text-xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
-                <span style={{ color: '#7a9fd4' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>Zar</span><span style={{ color: '#7a9fd4' }}>.mn</span>
-              </span>
-              <p className="text-xs text-gray-500 mt-0.5">Хөвсгөлийн зарын нэгдсэн платформ</p>
+            <div className="mb-4 flex items-center gap-2.5">
+              <Image src="/klogo.jpg" alt="KhuvsgulZar logo" width={36} height={36} className="rounded-md object-contain flex-shrink-0" />
+              <div className="flex flex-col">
+                <div className="flex items-start">
+                  <span className="text-xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
+                    <span style={{ color: '#7a9fd4' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>zar.mn</span>
+                  </span>
+                  <Megaphone size={13} className="ml-0.5 mt-0.5 flex-shrink-0" style={{ color: '#e8841a' }} />
+                </div>
+                <p className="text-[9px] text-gray-500 mt-0.5">Хөвсгөлийн зарын нэгдсэн платформ</p>
+              </div>
             </div>
             <p className="text-sm text-gray-400 leading-relaxed">
               Хөвсгөл аймгийн хамгийн том зар сурталчилгааны платформ. Аюулгүй, хурдан, найдвартай.
@@ -23,7 +31,6 @@ export default function Footer() {
               <li><Link href="/categories/real-estate" className="hover:text-white transition-colors cursor-pointer">Үл хөдлөх хөрөнгө</Link></li>
               <li><Link href="/categories/vehicles" className="hover:text-white transition-colors cursor-pointer">Автомашин</Link></li>
               <li><Link href="/categories/electronics" className="hover:text-white transition-colors cursor-pointer">Электроник</Link></li>
-              <li><Link href="/categories/jobs" className="hover:text-white transition-colors cursor-pointer">Ажлын байр</Link></li>
               <li><Link href="/search" className="hover:text-white transition-colors cursor-pointer">Бүх ангилал →</Link></li>
             </ul>
           </div>

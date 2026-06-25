@@ -18,7 +18,7 @@ export default function CategoryGrid({ categories }: Props) {
               <Link
                 key={cat.id}
                 href={`/categories/${cat.slug}`}
-                className="group flex flex-col items-center gap-2 px-5 py-4 bg-white hover:bg-blue-50 rounded-xl border border-gray-200 hover:border-[#1a3a6b] transition-all duration-150 cursor-pointer min-w-[90px] flex-shrink-0"
+                className="group flex flex-col items-center gap-2 py-4 bg-white hover:bg-blue-50 rounded-xl border border-gray-200 hover:border-[#1a3a6b] transition-all duration-150 cursor-pointer w-[96px] flex-shrink-0"
               >
                 <div
                   className="w-11 h-11 rounded-lg flex items-center justify-center transition-colors duration-150"
@@ -26,7 +26,7 @@ export default function CategoryGrid({ categories }: Props) {
                 >
                   <Icon size={22} className="group-hover:scale-110 transition-transform duration-150 text-[#1a3a6b]" />
                 </div>
-                <span className="text-xs font-semibold text-gray-800 group-hover:text-[#1a3a6b] text-center leading-tight whitespace-nowrap transition-colors">
+                <span className="text-xs font-semibold text-gray-800 group-hover:text-[#1a3a6b] text-center leading-tight transition-colors px-1 w-full">
                   {cat.name}
                 </span>
               </Link>
