@@ -1,14 +1,7 @@
 import Link from 'next/link'
-import {
-  Building2, Car, Smartphone, Monitor, Briefcase, Wrench,
-  Shirt, Trophy, Dog, Package, Armchair, Home
-} from 'lucide-react'
+import { Package } from 'lucide-react'
 import type { Category } from '@/lib/types'
-
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Building2, Car, Smartphone, Monitor, Armchair, Briefcase,
-  Wrench, Shirt, Trophy, Dog, Package, Home,
-}
+import { CATEGORY_ICON_MAP } from '@/lib/icons'
 
 interface Props {
   categories: Category[]
@@ -20,7 +13,7 @@ export default function CategoryGrid({ categories }: Props) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
           {categories.map(cat => {
-            const Icon = ICON_MAP[cat.icon || 'Package'] || Package
+            const Icon = CATEGORY_ICON_MAP[cat.icon || 'Package'] || Package
             return (
               <Link
                 key={cat.id}

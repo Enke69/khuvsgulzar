@@ -1,12 +1,9 @@
-import { Building2, Car, Smartphone, Monitor, Armchair, Briefcase, Wrench, Shirt, Trophy, Dog, Package } from 'lucide-react'
+import { Package } from 'lucide-react'
 import type { AdFormData } from './PostAdWizard'
 import { useEffect, useState } from 'react'
 import { createClient } from '@/lib/supabase/client'
 import type { Category } from '@/lib/types'
-
-const ICON_MAP: Record<string, React.ComponentType<{ size?: number; className?: string }>> = {
-  Building2, Car, Smartphone, Monitor, Armchair, Briefcase, Wrench, Shirt, Trophy, Dog, Package,
-}
+import { CATEGORY_ICON_MAP } from '@/lib/icons'
 
 interface Props {
   data: AdFormData
@@ -31,7 +28,7 @@ export default function StepCategory({ data, update, onNext }: Props) {
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {categories.map(cat => {
-          const Icon = ICON_MAP[cat.icon || 'Package'] || Package
+          const Icon = CATEGORY_ICON_MAP[cat.icon || 'Package'] || Package
           const selected = data.category_id === cat.id
           return (
             <button
