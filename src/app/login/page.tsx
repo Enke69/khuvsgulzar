@@ -23,7 +23,7 @@ export default function LoginPage() {
     if (err) {
       setError('Имэйл эсвэл нууц үг буруу байна.')
     } else {
-      router.push('/dashboard')
+      router.push('/')
       router.refresh()
     }
     setLoading(false)
