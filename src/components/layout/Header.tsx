@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useRouter } from 'next/navigation'
 import { Menu, X, User, Heart, LogOut, LayoutDashboard, Shield, ChevronDown, Megaphone } from 'lucide-react'
 import { createClient } from '@/lib/supabase/client'
@@ -13,8 +14,8 @@ const NAV_LINKS = [
   { href: '/categories/ul-hodloh', label: 'Үл хөдлөх' },
   { href: '/categories/auto', label: 'Авто' },
   { href: '/categories/ajil', label: 'Ажил' },
-  { href: '/categories/uilchilgee', label: 'Үйлчилгээ' },
-  { href: '/search?q=туслах', label: 'Тусламж' },
+  { href: '/categories/electronics', label: 'Цахилгаан бараа' },
+  { href: '/categories/animals', label: 'Мал амьтан' },
 ]
 
 export default function Header() {
@@ -57,15 +58,16 @@ export default function Header() {
         <div className="flex items-center justify-between h-16 gap-6">
 
           {/* Logo */}
-          <Link href="/" className="flex-shrink-0 flex items-center gap-2 leading-none">
+          <Link href="/" className="flex-shrink-0 flex items-center gap-2.5 leading-none">
+            <Image src="/klogo.jpg" alt="KhuvsgulZar logo" width={40} height={40} className="rounded-md object-contain flex-shrink-0" />
             <div className="flex flex-col">
               <div className="flex items-start">
-                <span className="text-2xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
+                <span className="text-xl font-extrabold tracking-tight" style={{ fontFamily: 'Rubik, sans-serif' }}>
                   <span style={{ color: '#1a3a6b' }}>Khuvsgul</span><span style={{ color: '#e8841a' }}>zar.mn</span>
                 </span>
-                <Megaphone size={16} className="ml-0.5 mt-0.5 flex-shrink-0" style={{ color: '#e8841a' }} />
+                <Megaphone size={14} className="ml-0.5 mt-0.5 flex-shrink-0" style={{ color: '#e8841a' }} />
               </div>
-              <span className="text-[10px] text-gray-400 font-normal tracking-wide">Хөвсгөлийн зарын нэгдсэн платформ</span>
+              <span className="text-[9px] text-gray-400 font-normal tracking-wide">Хөвсгөлийн зарын нэгдсэн платформ</span>
             </div>
           </Link>
 
