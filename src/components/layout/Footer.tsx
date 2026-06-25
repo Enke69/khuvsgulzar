@@ -41,9 +41,9 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wide">Мэдээлэл</h4>
             <ul className="space-y-2 text-sm">
-              <li><span className="text-gray-400">Утас: +976 9900-0000</span></li>
+              <li><span className="text-gray-400">Утас: +976 9947-9978</span></li>
               <li><span className="text-gray-400">Имэйл: info@khuvsgulzar.mn</span></li>
-              <li><span className="text-gray-400">Улаанбаатар, Монгол</span></li>
+              <li><span className="text-gray-400">Хөвсгөл, Монгол</span></li>
             </ul>
           </div>
         </div>
