@@ -30,6 +30,7 @@ export default function Footer() {
             <ul className="space-y-2 text-sm">
               <li><Link href="/categories/real-estate" className="hover:text-white transition-colors cursor-pointer">Үл хөдлөх хөрөнгө</Link></li>
               <li><Link href="/categories/vehicles" className="hover:text-white transition-colors cursor-pointer">Автомашин</Link></li>
+              <li><Link href="/categories/jobs" className="hover:text-white transition-colors cursor-pointer">Ажлын байр</Link></li>
               <li><Link href="/categories/electronics" className="hover:text-white transition-colors cursor-pointer">Электроник</Link></li>
               <li><Link href="/search" className="hover:text-white transition-colors cursor-pointer">Бүх ангилал →</Link></li>
             </ul>

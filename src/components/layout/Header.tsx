@@ -11,9 +11,9 @@ import type { Profile } from '@/lib/types'
 const NAV_LINKS = [
   { href: '/', label: 'Нүүр' },
   { href: '/search', label: 'Зарууд' },
-  { href: '/categories/ul-hodloh', label: 'Үл хөдлөх' },
-  { href: '/categories/auto', label: 'Авто' },
-  { href: '/categories/ajil', label: 'Ажил' },
+  { href: '/categories/real-estate', label: 'Үл хөдлөх' },
+  { href: '/categories/vehicles', label: 'Авто' },
+  { href: '/categories/jobs', label: 'Ажил' },
   { href: '/categories/electronics', label: 'Цахилгаан бараа' },
   { href: '/categories/animals', label: 'Мал амьтан' },
 ]

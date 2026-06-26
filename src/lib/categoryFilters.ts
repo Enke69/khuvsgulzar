@@ -236,16 +236,8 @@ export const CATEGORY_FILTERS: Record<string, FilterField[]> = {
   ],
 }
 
-// Map DB category slugs to filter keys (in case slugs differ from constants)
-export const SLUG_FILTER_MAP: Record<string, string> = {
-  'ajil': 'jobs',
-  'auto': 'vehicles',
-  'ul-hodloh': 'real-estate',
-}
-
 export function getFiltersForSlug(slug: string): FilterField[] {
-  const mapped = SLUG_FILTER_MAP[slug] ?? slug
-  return CATEGORY_FILTERS[mapped] ?? []
+  return CATEGORY_FILTERS[slug] ?? []
 }
 
 // Labels for display in post-ad form
