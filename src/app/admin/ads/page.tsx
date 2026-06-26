@@ -36,19 +36,21 @@ export default function AdminAdsPage() {
   useEffect(() => { load() }, [status, search])
 
   const updateStatus = async (id: string, newStatus: string) => {
-    await supabase.from('ads').update({ status: newStatus }).eq('id', id)
-    // Log
-    const { data: { user } } = await supabase.auth.getUser()
-    if (user) {
-      await supabase.from('admin_logs').insert({
-        admin_id: user.id,
-        action: newStatus === 'approved' ? 'approve_ad' : 'reject_ad',
-        target_type: 'ad',
-        target_id: id,
-        description: `Зар ${newStatus === 'approved' ? 'зөвшөөрсөн' : 'татгалзсан'}`,
-      })
-    }
+    const { error } = await supabase.from('ads').update({ status: newStatus }).eq('id', id)
+    if (error) { console.error('Status update failed:', error); return }
     setAds(prev => prev.map(a => a.id === id ? { ...a, status: newStatus as Ad['status'] } : a))
+    // Log in background — don't block UI on this
+    supabase.auth.getUser().then(({ data: { user } }) => {
+      if (user) {
+        supabase.from('admin_logs').insert({
+          admin_id: user.id,
+          action: newStatus === 'approved' ? 'approve_ad' : 'reject_ad',
+          target_type: 'ad',
+          target_id: id,
+          description: `Зар ${newStatus === 'approved' ? 'зөвшөөрсөн' : 'татгалзсан'}`,
+        })
+      }
+    })
   }
 
   const toggleFeatured = async (id: string, current: boolean) => {
