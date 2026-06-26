@@ -22,12 +22,13 @@ export default function AdminAdsPage() {
   const load = async () => {
     setLoading(true)
     let q = supabase.from('ads')
-      .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)')
+      .select('*, category:categories(*), location:locations(*), ad_images(*)')
       .order('created_at', { ascending: false })
       .limit(100)
     if (status !== 'all') q = q.eq('status', status)
     if (search) q = q.ilike('title', `%${search}%`)
-    const { data } = await q
+    const { data, error } = await q
+    if (error) console.error('Admin ads error:', error)
     setAds((data || []) as Ad[])
     setLoading(false)
   }
@@ -122,7 +123,7 @@ export default function AdminAdsPage() {
                               className="font-medium text-gray-900 hover:text-blue-600 cursor-pointer line-clamp-1 max-w-xs">
                               {ad.title}
                             </Link>
-                            <p className="text-xs text-gray-400">{ad.profile?.full_name || '—'}</p>
+                            <p className="text-xs text-gray-400">{ad.user_id?.slice(0, 8)}…</p>
                           </div>
                         </div>
                       </td>
