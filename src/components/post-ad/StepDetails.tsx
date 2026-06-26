@@ -5,6 +5,7 @@ import { createClient } from '@/lib/supabase/client'
 import type { AdFormData } from './PostAdWizard'
 import type { Location } from '@/lib/types'
 import { AD_CONDITION_LABELS, AD_TYPE_LABELS } from '@/lib/constants'
+import { getFiltersForSlug } from '@/lib/categoryFilters'
 
 interface Props {
   data: AdFormData
@@ -17,6 +18,9 @@ export default function StepDetails({ data, update, onNext, onBack }: Props) {
   const [locations, setLocations] = useState<Location[]>([])
   const [errors, setErrors] = useState<Record<string, string>>({})
   const supabase = createClient()
+  const catFilters = getFiltersForSlug(data.category_slug || '')
+  const setMeta = (key: string, val: string) =>
+    update({ metadata: { ...data.metadata, [key]: val } })
 
   useEffect(() => {
     supabase.from('locations').select('*').order('name').then(({ data: locs }) => {
@@ -71,6 +75,34 @@ export default function StepDetails({ data, update, onNext, onBack }: Props) {
             className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all resize-none"
           />
         </div>
+
+        {/* Category-specific fields */}
+        {catFilters.map(f => (
+          <div key={f.key}>
+            <label className="block text-sm font-semibold text-gray-700 mb-2">{f.label}</label>
+            {f.type === 'select' ? (
+              <select
+                value={data.metadata?.[f.key] || ''}
+                onChange={e => setMeta(f.key, e.target.value)}
+                className="w-full border border-gray-200 rounded-xl px-4 py-3 text-sm outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-100 transition-all cursor-pointer"
+              >
+                <option value="">Сонгоно уу</option>
+                {f.options.map(o => <option key={o.value} value={o.value}>{o.label}</option>)}
+              </select>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {f.options.map(o => (
+                  <button key={o.value} type="button"
+                    onClick={() => setMeta(f.key, o.value)}
+                    className={`px-4 py-2 rounded-xl text-sm font-medium border transition-colors cursor-pointer
+                      ${data.metadata?.[f.key] === o.value ? 'bg-blue-600 text-white border-blue-600' : 'bg-white text-gray-700 border-gray-200 hover:border-blue-300'}`}>
+                    {o.label}
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
+        ))}
 
         {/* Price */}
         <div>

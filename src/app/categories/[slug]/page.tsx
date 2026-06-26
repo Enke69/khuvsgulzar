@@ -9,6 +9,7 @@ import AdGrid from '@/components/ads/AdGrid'
 import AdFilters from '@/components/ads/AdFilters'
 import AdSortBar from '@/components/ads/AdSortBar'
 import type { Ad, Category } from '@/lib/types'
+import { getFiltersForSlug } from '@/lib/categoryFilters'
 
 const PAGE_SIZE = 20
 
@@ -31,6 +32,10 @@ function CategoryContent() {
   const condition = searchParams.get('condition')
   const adType = searchParams.get('ad_type')
 
+  const catFilters = getFiltersForSlug(slug)
+  const metaParams = catFilters.map(f => ({ key: f.key, val: searchParams.get(`meta_${f.key}`) })).filter(x => x.val)
+  const metaDep = metaParams.map(x => `${x.key}=${x.val}`).join(',')
+
   useEffect(() => {
     async function load() {
       setLoading(true)
@@ -51,6 +56,10 @@ function CategoryContent() {
       if (condition) query = query.eq('condition', condition)
       if (adType) query = query.eq('ad_type', adType)
 
+      for (const { key, val } of metaParams) {
+        if (val) query = query.filter(`metadata->>${key}`, 'eq', val)
+      }
+
       const orderMap: Record<string, { col: string; asc: boolean }> = {
         newest: { col: 'created_at', asc: false },
         oldest: { col: 'created_at', asc: true },
@@ -68,7 +77,7 @@ function CategoryContent() {
       setLoading(false)
     }
     load()
-  }, [slug, page, sort, priceMin, priceMax, location, condition, adType])
+  }, [slug, page, sort, priceMin, priceMax, location, condition, adType, metaDep])
 
   const totalPages = Math.ceil(total / PAGE_SIZE)
 
@@ -85,7 +94,7 @@ function CategoryContent() {
 
       <div className="flex flex-col lg:flex-row gap-6">
         <div className="w-full lg:w-64 flex-shrink-0">
-          <AdFilters />
+          <AdFilters categorySlug={slug} />
         </div>
         <div className="flex-1 min-w-0">
           <AdSortBar total={total} view={view} onViewChange={setView} />

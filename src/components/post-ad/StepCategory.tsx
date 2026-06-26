@@ -33,7 +33,7 @@ export default function StepCategory({ data, update, onNext }: Props) {
           return (
             <button
               key={cat.id}
-              onClick={() => update({ category_id: cat.id, category_name: cat.name })}
+              onClick={() => update({ category_id: cat.id, category_name: cat.name, category_slug: cat.slug, metadata: {} })}
               className={`flex flex-col items-center gap-2 p-4 rounded-xl border-2 transition-all cursor-pointer text-left
                 ${selected ? 'border-blue-500 bg-blue-50' : 'border-gray-100 hover:border-blue-200 hover:bg-gray-50'}`}
             >

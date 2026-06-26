@@ -13,6 +13,7 @@ import { Check } from 'lucide-react'
 export interface AdFormData {
   category_id: string
   category_name: string
+  category_slug: string
   title: string
   description: string
   price: string
@@ -22,6 +23,7 @@ export interface AdFormData {
   location_name: string
   images: File[]
   phone: string
+  metadata: Record<string, string>
 }
 
 const STEPS = [
@@ -35,6 +37,7 @@ const STEPS = [
 const defaultData: AdFormData = {
   category_id: '',
   category_name: '',
+  category_slug: '',
   title: '',
   description: '',
   price: '',
@@ -44,6 +47,7 @@ const defaultData: AdFormData = {
   location_name: '',
   images: [],
   phone: '',
+  metadata: {},
 }
 
 export default function PostAdWizard({ existingAd }: { existingAd?: Partial<AdFormData> & { id?: string } }) {
@@ -75,6 +79,7 @@ export default function PostAdWizard({ existingAd }: { existingAd?: Partial<AdFo
         ad_type: data.ad_type,
         phone: data.phone || null,
         status: 'pending' as const,
+        metadata: Object.keys(data.metadata).length > 0 ? data.metadata : null,
       }
 
       let adId: string
