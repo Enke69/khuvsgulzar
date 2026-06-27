@@ -1,0 +1,97 @@
+export default function PrivacyPage() {
+  return (
+    <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <h1 className="text-3xl font-bold text-gray-900 mb-2">Нууцлалын бодлого</h1>
+      <p className="text-sm text-gray-400 mb-10">Сүүлд шинэчлэгдсэн: 2026 оны 1-р сарын 1</p>
+
+      <div className="prose prose-gray max-w-none space-y-8 text-sm text-gray-700 leading-relaxed">
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">1. Ерөнхий мэдээлэл</h2>
+          <p>
+            KhuvsgulZar.mn ("бид", "манай платформ") нь таны хувийн мэдээллийн нууцлалыг хамгаалахыг эрхэмлэдэг.
+            Энэхүү нууцлалын бодлого нь манай вэбсайтыг ашиглах үед бид ямар мэдээлэл цуглуулж,
+            хэрхэн ашигладаг болохыг тайлбарлана.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">2. Цуглуулах мэдээлэл</h2>
+          <p className="mb-2">Бид дараах мэдээллийг цуглуулж болно:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Бүртгэлийн мэдээлэл: нэр, имэйл хаяг, утасны дугаар</li>
+            <li>Зарын мэдээлэл: та байршуулсан зар, зураг, үнэ, тайлбар</li>
+            <li>Техникийн мэдээлэл: IP хаяг, браузерийн төрөл, хандалтын цаг</li>
+            <li>Харилцааны мэдээлэл: бусад хэрэглэгчтэй хийсэн харилцаа</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">3. Мэдээлэл ашиглах зорилго</h2>
+          <p className="mb-2">Цуглуулсан мэдээллийг бид дараах зорилгоор ашиглана:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Таны бүртгэл болон хаягийг удирдах</li>
+            <li>Зарыг шалгаж, нийтлэх үйлчилгээ үзүүлэх</li>
+            <li>Платформын аюулгүй байдлыг хангах</li>
+            <li>Үйлчилгээний чанарыг сайжруулах</li>
+            <li>Хуулийн үүрэг хариуцлагаа биелүүлэх</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">4. Мэдээлэл хуваалцах</h2>
+          <p>
+            Бид таны хувийн мэдээллийг гуравдагч этгээдэд зарах, түрээслэх, дамжуулахгүй.
+            Зөвхөн дараах тохиолдолд мэдээлэл дамжуулж болно:
+          </p>
+          <ul className="list-disc pl-5 mt-2 space-y-1">
+            <li>Таны зөвшөөрөлтэйгээр</li>
+            <li>Хуулийн шаардлагын дагуу эрх бүхий байгууллагад</li>
+            <li>Платформын техникийн үйлчилгээ үзүүлэгч компаниудад (Supabase гэх мэт)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">5. Күүки (Cookie)</h2>
+          <p>
+            Манай сайт нэвтрэх болон хэрэглэгчийн тохиргоог хадгалах зорилгоор күүки ашиглана.
+            Та браузерийнхаа тохиргооноос күүкиг хаах боломжтой боловч энэ тохиолдолд зарим үйлчилгээ
+            ажиллахгүй байж болно.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">6. Мэдээллийн аюулгүй байдал</h2>
+          <p>
+            Бид таны мэдээллийг хамгаалахын тулд SSL шифрлэлт болон найдвартай серверийн дэд бүтцийг
+            ашигладаг. Гэсэн хэдий ч интернетээр дамжуулах ямар ч мэдээлэл 100% аюулгүй байдлыг баталгаажуулах
+            боломжгүйг анхааруулж байна.
+          </p>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">7. Таны эрхүүд</h2>
+          <p className="mb-2">Та дараах эрхтэй:</p>
+          <ul className="list-disc pl-5 space-y-1">
+            <li>Өөрийнхөө мэдээлэлтэй танилцах</li>
+            <li>Мэдээллээ засах, шинэчлэх</li>
+            <li>Бүртгэлээ устгуулахыг хүсэх</li>
+            <li>Мэдээлэл боловсруулахаас татгалзах</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2 className="text-lg font-bold text-gray-900 mb-3">8. Холбоо барих</h2>
+          <p>
+            Нууцлалын бодлоготой холбоотой асуулт, санал гомдол байвал бидэнтэй холбоо барина уу:
+          </p>
+          <p className="mt-2">
+            Имэйл: <a href="mailto:info@khuvsgulzar.mn" className="text-blue-600 hover:underline">info@khuvsgulzar.mn</a><br />
+            Утас: +976 9947-9978
+          </p>
+        </section>
+
+      </div>
+    </div>
+  )
+}

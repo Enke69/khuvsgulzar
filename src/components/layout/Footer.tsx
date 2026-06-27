@@ -59,8 +59,8 @@ export default function Footer() {
         <div className="border-t border-gray-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-2">
           <p className="text-sm text-gray-500">© 2026 KhuvsgulZar.mn. Бүх эрх хуулиар хамгаалагдсан.</p>
           <div className="flex gap-4 text-sm text-gray-500">
-            <span className="hover:text-gray-300 cursor-pointer">Нууцлалын бодлого</span>
-            <span className="hover:text-gray-300 cursor-pointer">Үйлчилгээний нөхцөл</span>
+            <Link href="/privacy" className="hover:text-gray-300 cursor-pointer">Нууцлалын бодлого</Link>
+            <Link href="/terms" className="hover:text-gray-300 cursor-pointer">Үйлчилгээний нөхцөл</Link>
           </div>
         </div>
       </div>
