@@ -46,7 +46,7 @@ function CategoryContent() {
 
       let query = supabase
         .from('ads')
-        .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)', { count: 'exact' })
+        .select('*, category:categories(*), location:locations(*), ad_images(*)', { count: 'exact' })
         .eq('status', 'approved')
         .eq('category_id', cat.id)
 

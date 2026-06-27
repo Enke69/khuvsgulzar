@@ -28,7 +28,7 @@ export default function AdminReportsPage() {
     setLoading(true)
     let q = supabase
       .from('reports')
-      .select('*, ad:ads(id, title), profile:profiles(full_name)')
+      .select('*, ad:ads(id, title)')
       .order('created_at', { ascending: false })
     if (filter !== 'all') q = q.eq('status', filter)
     const { data } = await q
@@ -94,7 +94,7 @@ export default function AdminReportsPage() {
                   </td>
                   <td className="px-4 py-3 text-xs text-gray-700">{r.reason}</td>
                   <td className="px-4 py-3 text-xs text-gray-500">
-                    {(r.profile as { full_name?: string } | null)?.full_name || '—'}
+                    {r.user_id?.slice(0, 8) || '—'}
                   </td>
                   <td className="px-4 py-3 text-xs text-gray-400">{formatRelativeDate(r.created_at)}</td>
                   <td className="px-4 py-3">

@@ -21,11 +21,18 @@ export default async function AdDetailPage({ params }: Props) {
 
   const { data: ad } = await supabase
     .from('ads')
-    .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)')
+    .select('*, category:categories(*), location:locations(*), ad_images(*)')
     .eq('id', id)
     .single()
 
   if (!ad || ad.status !== 'approved') notFound()
+
+  // Fetch seller profile separately (ads.user_id → auth.users, not profiles directly)
+  const { data: profile } = await supabase
+    .from('profiles')
+    .select('*')
+    .eq('user_id', ad.user_id)
+    .single()
 
   // Increment views
   await supabase.rpc('increment_ad_views', { ad_id: id })
@@ -33,7 +40,7 @@ export default async function AdDetailPage({ params }: Props) {
   // Related ads
   const { data: related } = await supabase
     .from('ads')
-    .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)')
+    .select('*, category:categories(*), location:locations(*), ad_images(*)')
     .eq('status', 'approved')
     .eq('category_id', ad.category_id)
     .neq('id', id)
@@ -141,9 +148,9 @@ export default async function AdDetailPage({ params }: Props) {
 
         {/* Right: seller + contact */}
         <div className="space-y-4">
-          {typedAd.profile && (
+          {profile && (
             <SellerCard
-              profile={typedAd.profile}
+              profile={profile}
               adPhone={typedAd.phone}
               adId={typedAd.id}
             />

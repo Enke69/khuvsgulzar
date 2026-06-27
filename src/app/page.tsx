@@ -83,7 +83,7 @@ async function getHomeData() {
       supabase.from('categories').select('*').order('name'),
       supabase
         .from('ads')
-        .select('*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*)')
+        .select('*, category:categories(*), location:locations(*), ad_images(*)')
         .eq('status', 'approved')
         .order('created_at', { ascending: false })
         .limit(4),

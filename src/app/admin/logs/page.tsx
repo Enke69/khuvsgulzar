@@ -16,7 +16,7 @@ export default async function AdminLogsPage() {
   const supabase = await createClient()
   const { data: logs } = await supabase
     .from('admin_logs')
-    .select('*, profile:profiles(full_name)')
+    .select('*')
     .order('created_at', { ascending: false })
     .limit(200)
 
@@ -41,7 +41,7 @@ export default async function AdminLogsPage() {
               {logs.map((log) => (
                 <tr key={log.id} className="hover:bg-gray-50">
                   <td className="px-4 py-3 font-medium text-gray-900 text-xs">
-                    {(log.profile as { full_name?: string } | null)?.full_name || 'Админ'}
+                    {log.admin_id?.slice(0, 8) || 'Админ'}
                   </td>
                   <td className="px-4 py-3">
                     <span className="text-xs font-semibold bg-blue-50 text-blue-700 px-2 py-0.5 rounded-full">

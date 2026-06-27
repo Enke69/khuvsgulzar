@@ -16,7 +16,7 @@ export default function FavoritesPage() {
       if (!user) return
       const { data } = await supabase
         .from('favorites')
-        .select('ad:ads(*, category:categories(*), location:locations(*), ad_images(*), profile:profiles(*))')
+        .select('ad:ads(*, category:categories(*), location:locations(*), ad_images(*))')
         .eq('user_id', user.id)
         .order('created_at', { ascending: false })
       const favAds = (data || []).map((f: { ad: unknown }) => f.ad).filter(Boolean) as Ad[]
