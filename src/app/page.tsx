@@ -63,10 +63,10 @@ const DEMO_ADS: Ad[] = [
 export const revalidate = 60
 
 const HELPFUL_LINKS = [
-  { icon: Building, label: 'Хөвсгөл аймгийн ЗДТГ' },
-  { icon: FileText, label: 'Татварын хэлтэс' },
-  { icon: Scale, label: 'Гааллийн газар' },
-  { icon: Scale, label: 'Шүүхийн шийдвэр гүйцэтгэх газар' },
+  { icon: Building, label: 'Хөвсгөл аймгийн ЗДТГ', href: 'https://khovsgol.gov.mn/' },
+  { icon: FileText, label: 'Татварын хэлтэс', href: 'https://www.mta.gov.mn/home' },
+  { icon: Scale, label: 'Гааллийн газар', href: 'https://gaali.mn/' },
+  { icon: Scale, label: 'Шүүхийн шийдвэр гүйцэтгэх газар', href: 'https://cd.gov.mn/index/' },
 ]
 
 const TRUST_ITEMS = [
@@ -152,18 +152,15 @@ export default async function HomePage() {
             <div className="bg-white border border-gray-200 rounded-xl p-5">
               <h3 className="font-bold text-gray-900 text-sm mb-3">Танд туслах холбоос</h3>
               <ul className="space-y-2">
-                {HELPFUL_LINKS.map(({ icon: Icon, label }) => (
+                {HELPFUL_LINKS.map(({ icon: Icon, label, href }) => (
                   <li key={label}>
-                    <a href="#" className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#1a3a6b] transition-colors cursor-pointer group">
+                    <a href={href} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-sm text-gray-700 hover:text-[#1a3a6b] transition-colors cursor-pointer group">
                       <Icon size={14} className="text-gray-400 group-hover:text-[#1a3a6b] flex-shrink-0" />
                       {label}
                     </a>
                   </li>
                 ))}
               </ul>
-              <a href="#" className="flex items-center gap-1 text-xs mt-4 font-medium hover:underline" style={{ color: '#1a3a6b' }}>
-                Бүгдийг үзэх →
-              </a>
             </div>
 
           </div>
