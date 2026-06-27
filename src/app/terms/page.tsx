@@ -98,10 +98,7 @@ export default function TermsPage() {
           <p>
             Үйлчилгээний нөхцөлтэй холбоотой асуулт байвал бидэнтэй холбоо барина уу:
           </p>
-          <p className="mt-2">
-            Имэйл: <a href="mailto:info@khuvsgulzar.mn" className="text-blue-600 hover:underline">info@khuvsgulzar.mn</a><br />
-            Утас: +976 9947-9978
-          </p>
+          <p className="mt-2">Утас: +976 9947-9978</p>
         </section>
 
       </div>
