@@ -94,7 +94,7 @@ export default function AdminReportsPage() {
                   </td>
                   <td className="px-4 py-3 text-xs text-gray-700">{r.reason}</td>
                   <td className="px-4 py-3 text-xs text-gray-500">
-                    {r.user_id?.slice(0, 8) || '—'}
+                    {r.reporter_id?.slice(0, 8) || '—'}
                   </td>
                   <td className="px-4 py-3 text-xs text-gray-400">{formatRelativeDate(r.created_at)}</td>
                   <td className="px-4 py-3">
