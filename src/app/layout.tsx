@@ -22,6 +22,14 @@ export const metadata: Metadata = {
   title: 'KhuvsgulZar.mn — Монголын зар сурталчилгааны платформ',
   description: 'Монголын хамгийн том зар сурталчилгааны платформ. Зарна уу, авна уу — хурдан, аюулгүй, хялбар.',
   keywords: 'зар, сурталчилгаа, монгол, зарна, авна, үл хөдлөх, автомашин',
+  icons: {
+    icon: [
+      { url: '/klogo.jpg', sizes: '192x192', type: 'image/jpeg' },
+      { url: '/klogo.jpg', sizes: '512x512', type: 'image/jpeg' },
+    ],
+    apple: { url: '/klogo.jpg', sizes: '180x180', type: 'image/jpeg' },
+    shortcut: '/klogo.jpg',
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
