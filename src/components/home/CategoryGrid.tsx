@@ -1,5 +1,8 @@
+'use client'
+
+import { useRef } from 'react'
 import Link from 'next/link'
-import { Package } from 'lucide-react'
+import { Package, ChevronLeft, ChevronRight } from 'lucide-react'
 import type { Category } from '@/lib/types'
 import { CATEGORY_ICON_MAP } from '@/lib/icons'
 
@@ -8,10 +11,23 @@ interface Props {
 }
 
 export default function CategoryGrid({ categories }: Props) {
+  const scrollRef = useRef<HTMLDivElement>(null)
+
+  const scroll = (dir: 'left' | 'right') => {
+    scrollRef.current?.scrollBy({ left: dir === 'left' ? -320 : 320, behavior: 'smooth' })
+  }
+
   return (
     <section className="bg-white border-b border-gray-100 py-6">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <button
+          onClick={() => scroll('left')}
+          className="absolute left-1 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 cursor-pointer transition-colors"
+        >
+          <ChevronLeft size={16} className="text-gray-600" />
+        </button>
+
+        <div ref={scrollRef} className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide px-10">
           {categories.map(cat => {
             const Icon = CATEGORY_ICON_MAP[cat.icon || 'Package'] || Package
             return (
@@ -33,6 +49,13 @@ export default function CategoryGrid({ categories }: Props) {
             )
           })}
         </div>
+
+        <button
+          onClick={() => scroll('right')}
+          className="absolute right-1 top-1/2 -translate-y-1/2 z-10 w-8 h-8 bg-white border border-gray-200 rounded-full shadow-md flex items-center justify-center hover:bg-gray-50 cursor-pointer transition-colors"
+        >
+          <ChevronRight size={16} className="text-gray-600" />
+        </button>
       </div>
     </section>
   )

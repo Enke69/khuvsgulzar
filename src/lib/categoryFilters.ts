@@ -96,6 +96,26 @@ export const CATEGORY_FILTERS: Record<string, FilterField[]> = {
   ],
   phones: [
     {
+      key: 'listing_type',
+      label: 'Зарын төрөл',
+      type: 'radio',
+      options: [
+        { value: 'device', label: 'Гар утас зарна' },
+        { value: 'number', label: 'Дугаар зарна' },
+      ],
+    },
+    {
+      key: 'operator',
+      label: 'Оператор',
+      type: 'radio',
+      options: [
+        { value: 'mobicom', label: 'Мобиком' },
+        { value: 'unitel', label: 'Юнител' },
+        { value: 'skytel', label: 'Скайтел' },
+        { value: 'gmobile', label: 'Жи-Мобайл' },
+      ],
+    },
+    {
       key: 'brand',
       label: 'Брэнд',
       type: 'radio',
@@ -218,6 +238,84 @@ export const CATEGORY_FILTERS: Record<string, FilterField[]> = {
       ],
     },
   ],
+  unaa: [
+    {
+      key: 'from_location',
+      label: 'Хаанаас',
+      type: 'select',
+      options: [
+        { value: 'murun', label: 'Мөрөн' },
+        { value: 'ulaanbaatar', label: 'Улаанбаатар' },
+        { value: 'hatgal', label: 'Хатгал' },
+        { value: 'renchinlhumbe', label: 'Рэнчинлхүмбэ' },
+        { value: 'tsagaannuur', label: 'Цагааннуур' },
+        { value: 'tarialan', label: 'Тариалан' },
+        { value: 'tosontsengel', label: 'Тосонцэнгэл' },
+        { value: 'other', label: 'Бусад' },
+      ],
+    },
+    {
+      key: 'to_location',
+      label: 'Хаашаа',
+      type: 'select',
+      options: [
+        { value: 'murun', label: 'Мөрөн' },
+        { value: 'ulaanbaatar', label: 'Улаанбаатар' },
+        { value: 'hatgal', label: 'Хатгал' },
+        { value: 'renchinlhumbe', label: 'Рэнчинлхүмбэ' },
+        { value: 'tsagaannuur', label: 'Цагааннуур' },
+        { value: 'tarialan', label: 'Тариалан' },
+        { value: 'tosontsengel', label: 'Тосонцэнгэл' },
+        { value: 'other', label: 'Бусад' },
+      ],
+    },
+    {
+      key: 'vehicle_type',
+      label: 'Тээврийн хэрэгсэл',
+      type: 'radio',
+      options: [
+        { value: 'car', label: 'Машин' },
+        { value: 'minibus', label: 'Микро автобус' },
+        { value: 'bus', label: 'Автобус' },
+        { value: 'suv', label: 'Жип' },
+        { value: 'other', label: 'Бусад' },
+      ],
+    },
+  ],
+  resorts: [
+    {
+      key: 'resort_type',
+      label: 'Амралтын төрөл',
+      type: 'radio',
+      options: [
+        { value: 'ger_camp', label: 'Гэр буудал' },
+        { value: 'hotel', label: 'Зочид буудал' },
+        { value: 'cottage', label: 'Байшин / Cottage' },
+        { value: 'camp', label: 'Кемп' },
+      ],
+    },
+    {
+      key: 'capacity',
+      label: 'Багтаамж',
+      type: 'select',
+      options: [
+        { value: '1-5', label: '1-5 хүн' },
+        { value: '6-10', label: '6-10 хүн' },
+        { value: '11-20', label: '11-20 хүн' },
+        { value: '20+', label: '20+ хүн' },
+      ],
+    },
+    {
+      key: 'amenities',
+      label: 'Тохилог байдал',
+      type: 'radio',
+      options: [
+        { value: 'basic', label: 'Энгийн' },
+        { value: 'standard', label: 'Стандарт' },
+        { value: 'luxury', label: 'Тансаг' },
+      ],
+    },
+  ],
   'hay-feed': [
     {
       key: 'feed_type',
@@ -316,4 +414,16 @@ export const CATEGORY_FIELD_LABELS: Record<string, string> = {
   sport_type: 'Спортын төрөл',
   service_type: 'Үйлчилгээний төрөл',
   furniture_type: 'Тавилгын төрөл',
+  listing_type: 'Зарын төрөл',
+  operator: 'Оператор',
+  from_location: 'Хаанаас',
+  to_location: 'Хаашаа',
+  vehicle_type: 'Тээврийн хэрэгсэл',
+  resort_type: 'Амралтын төрөл',
+  capacity: 'Багтаамж',
+  amenities: 'Тохилог байдал',
+  feed_type: 'Тэжээлийн төрөл',
+  animal_for: 'Ямар малд',
+  building_type: 'Барилгын төрөл',
+  completion: 'Бэлэн байдал',
 }

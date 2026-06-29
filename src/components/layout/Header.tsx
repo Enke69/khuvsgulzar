@@ -31,6 +31,8 @@ const ALL_CATEGORIES = [
   { href: '/categories/services', label: 'Үйлчилгээ' },
   { href: '/categories/hay-feed', label: 'Өвс тэжээл' },
   { href: '/categories/new-buildings', label: 'Шинэ барилгууд' },
+  { href: '/categories/unaa', label: 'Унаа' },
+  { href: '/categories/resorts', label: 'Амралтын газар' },
 ]
 
 export default function Header() {
