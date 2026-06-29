@@ -218,6 +218,66 @@ export const CATEGORY_FILTERS: Record<string, FilterField[]> = {
       ],
     },
   ],
+  'hay-feed': [
+    {
+      key: 'feed_type',
+      label: 'Тэжээлийн төрөл',
+      type: 'radio',
+      options: [
+        { value: 'hay', label: 'Өвс' },
+        { value: 'grain', label: 'Будаа / Тариа' },
+        { value: 'mixed', label: 'Холимог тэжээл' },
+        { value: 'silage', label: 'Силос' },
+        { value: 'other', label: 'Бусад' },
+      ],
+    },
+    {
+      key: 'animal_for',
+      label: 'Ямар малд',
+      type: 'radio',
+      options: [
+        { value: 'horse', label: 'Морь' },
+        { value: 'cow', label: 'Үхэр' },
+        { value: 'sheep', label: 'Хонь / Ямаа' },
+        { value: 'all', label: 'Бүх мал' },
+      ],
+    },
+  ],
+  'new-buildings': [
+    {
+      key: 'building_type',
+      label: 'Барилгын төрөл',
+      type: 'radio',
+      options: [
+        { value: 'apartment', label: 'Орон сууц' },
+        { value: 'house', label: 'Байшин' },
+        { value: 'commercial', label: 'Арилжааны' },
+        { value: 'office', label: 'Оффис' },
+      ],
+    },
+    {
+      key: 'rooms',
+      label: 'Өрөөний тоо',
+      type: 'select',
+      options: [
+        { value: '1', label: '1 өрөө' },
+        { value: '2', label: '2 өрөө' },
+        { value: '3', label: '3 өрөө' },
+        { value: '4', label: '4 өрөө' },
+        { value: '5+', label: '5+ өрөө' },
+      ],
+    },
+    {
+      key: 'completion',
+      label: 'Бэлэн байдал',
+      type: 'radio',
+      options: [
+        { value: 'ready', label: 'Бэлэн' },
+        { value: 'under_construction', label: 'Баригдаж байгаа' },
+        { value: 'planned', label: 'Төлөвлөгдсөн' },
+      ],
+    },
+  ],
   furniture: [
     {
       key: 'furniture_type',

@@ -18,6 +18,21 @@ const NAV_LINKS = [
   { href: '/categories/animals', label: 'Мал амьтан' },
 ]
 
+const ALL_CATEGORIES = [
+  { href: '/categories/real-estate', label: 'Үл хөдлөх хөрөнгө' },
+  { href: '/categories/vehicles', label: 'Автомашин' },
+  { href: '/categories/jobs', label: 'Ажлын байр' },
+  { href: '/categories/electronics', label: 'Цахилгаан бараа' },
+  { href: '/categories/animals', label: 'Мал амьтан' },
+  { href: '/categories/phones', label: 'Утас' },
+  { href: '/categories/fashion', label: 'Хувцас хэрэглэл' },
+  { href: '/categories/furniture', label: 'Тавилга' },
+  { href: '/categories/sports', label: 'Спорт' },
+  { href: '/categories/services', label: 'Үйлчилгээ' },
+  { href: '/categories/hay-feed', label: 'Өвс тэжээл' },
+  { href: '/categories/new-buildings', label: 'Шинэ барилгууд' },
+]
+
 export default function Header() {
   const router = useRouter()
   const [mobileOpen, setMobileOpen] = useState(false)
@@ -163,9 +178,18 @@ export default function Header() {
         {/* Mobile menu */}
         {mobileOpen && (
           <div className="md:hidden border-t border-gray-100 py-4 space-y-1">
-            {NAV_LINKS.map(link => (
+            <Link href="/" onClick={() => setMobileOpen(false)}
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 rounded-lg text-sm font-medium cursor-pointer">
+              Нүүр
+            </Link>
+            <Link href="/search" onClick={() => setMobileOpen(false)}
+              className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 rounded-lg text-sm font-medium cursor-pointer">
+              Бүх зарууд
+            </Link>
+            <p className="px-4 pt-2 pb-1 text-[10px] font-bold uppercase tracking-widest text-gray-400">Ангилал</p>
+            {ALL_CATEGORIES.map(link => (
               <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                className="block px-4 py-2.5 text-gray-700 hover:bg-gray-50 rounded-lg text-sm font-medium cursor-pointer">
+                className="block px-4 py-2 text-gray-700 hover:bg-gray-50 rounded-lg text-sm cursor-pointer">
                 {link.label}
               </Link>
             ))}

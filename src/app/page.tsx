@@ -3,7 +3,7 @@ import HeroSection from '@/components/home/HeroSection'
 import CategoryGrid from '@/components/home/CategoryGrid'
 import AdGrid from '@/components/ads/AdGrid'
 import Link from 'next/link'
-import { Megaphone, FileText, Scale, Building, Shield, CheckCircle, Clock } from 'lucide-react'
+import { Megaphone, FileText, Scale, Building, Shield, CheckCircle, Clock, HeartPulse, AlertTriangle, Gavel } from 'lucide-react'
 import type { Ad, Category } from '@/lib/types'
 
 const DEMO_CATEGORIES: Category[] = [
@@ -63,10 +63,13 @@ const DEMO_ADS: Ad[] = [
 export const revalidate = 60
 
 const HELPFUL_LINKS = [
-  { icon: Building, label: 'Хөвсгөл аймгийн ЗДТГ', href: 'https://khovsgol.gov.mn/' },
-  { icon: FileText, label: 'Татварын хэлтэс', href: 'https://www.mta.gov.mn/home' },
-  { icon: Scale, label: 'Гааллийн газар', href: 'https://gaali.mn/' },
-  { icon: Scale, label: 'Шүүхийн шийдвэр гүйцэтгэх газар', href: 'https://cd.gov.mn/index/' },
+  { icon: Building,       label: 'Хөвсгөл аймгийн ЗДТГ',                    href: 'https://khovsgol.gov.mn/' },
+  { icon: FileText,       label: 'Татварын хэлтэс',                          href: 'https://www.mta.gov.mn/home' },
+  { icon: Scale,          label: 'Шүүхийн шийдвэр гүйцэтгэх газар',         href: 'https://cd.gov.mn/index/' },
+  { icon: HeartPulse,     label: 'Хөвсгөл аймгийн Нэгдсэн эмнэлэг',        href: 'https://moh.khs.gov.mn/' },
+  { icon: Shield,         label: 'Хөвсгөл аймгийн цагдаагийн газар',        href: 'https://police.gov.mn/o/23/contact' },
+  { icon: AlertTriangle,  label: 'Хөвсгөл аймгийн Онцгой байдлын газар',    href: 'https://www.opendatalab.mn/search/1606?model=TClient' },
+  { icon: Gavel,          label: 'Хөвсгөл аймгийн прокурорын газар',        href: 'https://khuvsgul.prosecutor.mn/' },
 ]
 
 const TRUST_ITEMS = [

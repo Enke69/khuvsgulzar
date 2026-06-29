@@ -19,9 +19,9 @@ const nunitoSans = Nunito_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'KhuvsgulZar.mn — Монголын зар сурталчилгааны платформ',
-  description: 'Монголын хамгийн том зар сурталчилгааны платформ. Зарна уу, авна уу — хурдан, аюулгүй, хялбар.',
-  keywords: 'зар, сурталчилгаа, монгол, зарна, авна, үл хөдлөх, автомашин',
+  title: 'KhuvsgulZar.mn — Хөвсгөлийн зар сурталчилгааны платформ',
+  description: 'Хөвсгөлийн хамгийн том зар сурталчилгааны платформ. Зарна уу, авна уу — хурдан, аюулгүй, хялбар.',
+  keywords: 'зар, сурталчилгаа, хөвсгөл, зарна, авна, үл хөдлөх, автомашин',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
