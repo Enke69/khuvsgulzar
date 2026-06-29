@@ -12,6 +12,9 @@ interface Props {
 
 export default function CategoryGrid({ categories }: Props) {
   const scrollRef = useRef<HTMLDivElement>(null)
+  const sorted = [...categories].sort((a, b) =>
+    a.name === 'Бусад' ? 1 : b.name === 'Бусад' ? -1 : 0
+  )
 
   const scroll = (dir: 'left' | 'right') => {
     scrollRef.current?.scrollBy({ left: dir === 'left' ? -320 : 320, behavior: 'smooth' })
@@ -28,7 +31,7 @@ export default function CategoryGrid({ categories }: Props) {
         </button>
 
         <div ref={scrollRef} className="flex gap-3 overflow-x-auto pb-1 scrollbar-hide px-10">
-          {categories.map(cat => {
+          {sorted.map(cat => {
             const Icon = CATEGORY_ICON_MAP[cat.icon || 'Package'] || Package
             return (
               <Link

@@ -17,7 +17,10 @@ export default function StepCategory({ data, update, onNext }: Props) {
 
   useEffect(() => {
     supabase.from('categories').select('*').order('name').then(({ data: cats }) => {
-      setCategories(cats || [])
+      const sorted = (cats || []).sort((a: Category, b: Category) =>
+        a.name === 'Бусад' ? 1 : b.name === 'Бусад' ? -1 : 0
+      )
+      setCategories(sorted)
     })
   }, [])
 
