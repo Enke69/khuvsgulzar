@@ -52,7 +52,10 @@ function CategoryContent() {
 
       if (priceMin) query = query.gte('price', Number(priceMin))
       if (priceMax) query = query.lte('price', Number(priceMax))
-      if (location) query = query.eq('location.name', location)
+      if (location) {
+        const { data: loc } = await supabase.from('locations').select('id').eq('name', location).single()
+        if (loc) query = query.eq('location_id', loc.id)
+      }
       if (condition) query = query.eq('condition', condition)
       if (adType) query = query.eq('ad_type', adType)
 

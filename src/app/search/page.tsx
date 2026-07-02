@@ -53,6 +53,11 @@ function SearchContent() {
         if (cat) query = query.eq('category_id', cat.id)
       }
 
+      if (location) {
+        const { data: loc } = await supabase.from('locations').select('id').eq('name', location).single()
+        if (loc) query = query.eq('location_id', loc.id)
+      }
+
       const orderMap: Record<string, { col: string; asc: boolean }> = {
         newest: { col: 'created_at', asc: false },
         oldest: { col: 'created_at', asc: true },

@@ -7,7 +7,7 @@ import { CATEGORIES } from '@/lib/constants'
 
 const QUICK_LINKS = [
   { icon: Megaphone, label: 'Зар байршуулах', href: '/dashboard/post-ad' },
-  { icon: Building, label: 'Байр захиалах', href: '/categories/ul-hodloh' },
+  { icon: Building, label: 'Байр захиалах', href: '/categories/real-estate' },
   { icon: Hotel, label: 'Зочид буудал', href: '/search?q=зочид буудал' },
   { icon: Home, label: 'Гэр түрээс', href: '/search?q=гэр түрээс' },
 ]
