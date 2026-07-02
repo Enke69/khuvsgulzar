@@ -282,6 +282,44 @@ export const CATEGORY_FILTERS: Record<string, FilterField[]> = {
       ],
     },
   ],
+  hotels: [
+    {
+      key: 'room_type',
+      label: 'Өрөөний төрөл',
+      type: 'radio',
+      options: [
+        { value: 'single', label: 'Нэг хүний өрөө' },
+        { value: 'double', label: 'Хоёр хүний өрөө' },
+        { value: 'twin', label: 'Хос ортой өрөө' },
+        { value: 'suite', label: 'Люкс өрөө' },
+        { value: 'family', label: 'Гэр бүлийн өрөө' },
+      ],
+    },
+    {
+      key: 'stars',
+      label: 'Одны зэрэглэл',
+      type: 'radio',
+      options: [
+        { value: '1', label: '★ 1 од' },
+        { value: '2', label: '★★ 2 од' },
+        { value: '3', label: '★★★ 3 од' },
+        { value: '4', label: '★★★★ 4 од' },
+        { value: '5', label: '★★★★★ 5 од' },
+      ],
+    },
+    {
+      key: 'amenities',
+      label: 'Үйлчилгээ',
+      type: 'radio',
+      options: [
+        { value: 'wifi', label: 'WiFi' },
+        { value: 'parking', label: 'Зогсоол' },
+        { value: 'breakfast', label: 'Өглөөний цай' },
+        { value: 'restaurant', label: 'Ресторан' },
+        { value: 'all', label: 'Бүгд' },
+      ],
+    },
+  ],
   resorts: [
     {
       key: 'resort_type',
@@ -426,4 +464,7 @@ export const CATEGORY_FIELD_LABELS: Record<string, string> = {
   animal_for: 'Ямар малд',
   building_type: 'Барилгын төрөл',
   completion: 'Бэлэн байдал',
+  room_type: 'Өрөөний төрөл',
+  stars: 'Одны зэрэглэл',
+  amenities: 'Үйлчилгээ',
 }
