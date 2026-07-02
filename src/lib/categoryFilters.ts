@@ -466,5 +466,4 @@ export const CATEGORY_FIELD_LABELS: Record<string, string> = {
   completion: 'Бэлэн байдал',
   room_type: 'Өрөөний төрөл',
   stars: 'Одны зэрэглэл',
-  amenities: 'Үйлчилгээ',
 }

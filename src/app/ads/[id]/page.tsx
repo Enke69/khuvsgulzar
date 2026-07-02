@@ -7,12 +7,37 @@ import SellerCard from '@/components/ads/SellerCard'
 import AdGrid from '@/components/ads/AdGrid'
 import ReportButton from '@/components/ads/ReportButton'
 import FavoriteButton from '@/components/ads/FavoriteButton'
+import ShareButton from '@/components/ads/ShareButton'
 import { formatPrice, formatDate } from '@/lib/utils'
 import { AD_CONDITION_LABELS, AD_TYPE_LABELS, AD_STATUS_LABELS } from '@/lib/constants'
 import type { Ad } from '@/lib/types'
 
 interface Props {
   params: Promise<{ id: string }>
+}
+
+export async function generateMetadata({ params }: Props) {
+  const { id } = await params
+  const supabase = await createClient()
+  const { data: ad } = await supabase
+    .from('ads')
+    .select('title, description, price, ad_images(image_url)')
+    .eq('id', id)
+    .single()
+
+  if (!ad) return { title: 'Зар олдсонгүй' }
+
+  const image = ad.ad_images?.[0]?.image_url
+  return {
+    title: `${ad.title} — KhuvsgulZar.mn`,
+    description: ad.description?.slice(0, 160) || 'Хөвсгөлийн зарын нэгдсэн платформ',
+    openGraph: {
+      title: ad.title,
+      description: ad.description?.slice(0, 160) || formatPrice(ad.price),
+      images: image ? [{ url: image }] : [],
+      type: 'website',
+    },
+  }
 }
 
 export default async function AdDetailPage({ params }: Props) {
@@ -126,8 +151,9 @@ export default async function AdDetailPage({ params }: Props) {
           </div>
 
           {/* Action buttons */}
-          <div className="flex gap-3">
+          <div className="flex gap-3 flex-wrap">
             <FavoriteButton adId={typedAd.id} />
+            <ShareButton />
             <ReportButton adId={typedAd.id} />
           </div>
 
