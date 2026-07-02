@@ -2,13 +2,14 @@
 
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
-import { LayoutDashboard, FileText, PlusCircle, Heart, User } from 'lucide-react'
+import { LayoutDashboard, FileText, PlusCircle, Heart, User, MessageCircle } from 'lucide-react'
 import type { Profile } from '@/lib/types'
 
 const NAV = [
   { href: '/dashboard', label: 'Тойм', icon: LayoutDashboard, exact: true },
   { href: '/dashboard/my-ads', label: 'Миний зарууд', icon: FileText },
   { href: '/dashboard/post-ad', label: 'Зар нэмэх', icon: PlusCircle },
+  { href: '/dashboard/messages', label: 'Мессежүүд', icon: MessageCircle },
   { href: '/dashboard/favorites', label: 'Хадгалсан', icon: Heart },
   { href: '/dashboard/profile', label: 'Профайл', icon: User },
 ]

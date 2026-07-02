@@ -2,8 +2,10 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import { useRouter } from 'next/navigation'
 import { Phone, MessageCircle, User, Calendar } from 'lucide-react'
 import { formatDate } from '@/lib/utils'
+import { createClient } from '@/lib/supabase/client'
 import type { Profile } from '@/lib/types'
 
 interface Props {
@@ -18,14 +20,27 @@ export default function SellerCard({ profile, adPhone, adId }: Props) {
   const [msg, setMsg] = useState('')
   const [sending, setSending] = useState(false)
   const [sent, setSent] = useState(false)
+  const [error, setError] = useState('')
+  const router = useRouter()
+  const supabase = createClient()
 
   const handleSendMessage = async () => {
     if (!msg.trim()) return
+    setError('')
+    const { data: { user } } = await supabase.auth.getUser()
+    if (!user) { router.push('/login'); return }
+    if (user.id === profile.user_id) { setError('Та өөрийн зард мессеж илгээх боломжгүй.'); return }
+
     setSending(true)
-    // Message sending handled server-side
-    await new Promise(r => setTimeout(r, 800))
-    setSent(true)
+    const { error: insertError } = await supabase.from('messages').insert({
+      ad_id: adId,
+      sender_id: user.id,
+      receiver_id: profile.user_id,
+      message: msg.trim(),
+    })
     setSending(false)
+    if (insertError) { setError('Мессеж илгээхэд алдаа гарлаа. Дахин оролдоно уу.'); return }
+    setSent(true)
     setMsg('')
     setMsgOpen(false)
   }
@@ -84,6 +99,7 @@ export default function SellerCard({ profile, adPhone, adId }: Props) {
           >
             {sending ? 'Илгээж байна...' : 'Илгээх'}
           </button>
+          {error && <p className="text-red-600 text-xs text-center">{error}</p>}
           {sent && <p className="text-green-600 text-xs text-center">Мессеж амжилттай илгээгдлээ!</p>}
         </div>
       )}
