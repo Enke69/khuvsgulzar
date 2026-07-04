@@ -8,6 +8,7 @@ import AdGrid from '@/components/ads/AdGrid'
 import ReportButton from '@/components/ads/ReportButton'
 import FavoriteButton from '@/components/ads/FavoriteButton'
 import ShareButton from '@/components/ads/ShareButton'
+import MessengerShareButton from '@/components/ads/MessengerShareButton'
 import { formatPrice, formatDate } from '@/lib/utils'
 import { AD_CONDITION_LABELS, AD_TYPE_LABELS, AD_STATUS_LABELS } from '@/lib/constants'
 import type { Ad } from '@/lib/types'
@@ -154,6 +155,7 @@ export default async function AdDetailPage({ params }: Props) {
           <div className="flex gap-3 flex-wrap">
             <FavoriteButton adId={typedAd.id} />
             <ShareButton />
+            <MessengerShareButton />
             <ReportButton adId={typedAd.id} />
           </div>
 

@@ -31,7 +31,7 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('/homepage%20bg.png'), linear-gradient(160deg, #1a3a6b 0%, #2a5298 40%, #3a74c4 70%, #7a9fd4 100%)",
+          backgroundImage: "url('/newbg.png'), linear-gradient(160deg, #1a3a6b 0%, #2a5298 40%, #3a74c4 70%, #7a9fd4 100%)",
         }}
       />
       {/* Subtle dark overlay for text readability */}
