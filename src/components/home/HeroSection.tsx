@@ -29,9 +29,10 @@ export default function HeroSection() {
     <section className="relative overflow-hidden" style={{ minHeight: 340 }}>
       {/* Hero background — place your landscape image at public/hero-bg.jpg */}
       <div
-        className="absolute inset-0 bg-cover bg-center"
+        className="absolute inset-0 bg-cover"
         style={{
           backgroundImage: "url('/newbg.png'), linear-gradient(160deg, #1a3a6b 0%, #2a5298 40%, #3a74c4 70%, #7a9fd4 100%)",
+          backgroundPosition: 'center 75%',
         }}
       />
       {/* Subtle dark overlay for text readability */}
